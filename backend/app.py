@@ -7,6 +7,10 @@ from type import *
 app = FastAPI()
 
 
+@app.get('/')
+def test_api_running():
+    return {"message": "API is running correctly!"}
+
 @app.post("/run-code/")
 def run_code(code_input: CodeInput):
     result = code_runner(code=code_input.code, language=code_input.language)
